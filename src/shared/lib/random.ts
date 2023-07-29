@@ -1,12 +1,12 @@
 import { LoremIpsum } from 'lorem-ipsum';
 
-export const randomText = new LoremIpsum({
+export const random = new LoremIpsum({
   sentencesPerParagraph: {
     max: 8,
     min: 4,
   },
   wordsPerSentence: {
-    max: 16,
+    max: 4,
     min: 4,
   },
 });

@@ -1,2 +1,2 @@
 export { createImmerableSignal } from './create-immer-signal';
-export { randomText } from './random-text';
+export { random } from './random';
