@@ -8,7 +8,7 @@ type Props = {
 
 export const DeleteNoteButton: Component<Props> = ({ id }) => {
   const handleClick = () => {
-    const isConfirmed = confirm('Действительно хотите удалить все заметки?');
+    const isConfirmed = confirm('Действительно хотите удалить заметку?');
     if (!isConfirmed) return;
 
     noteModel.deleteNote(id);
