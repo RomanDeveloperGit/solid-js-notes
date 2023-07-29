@@ -6,11 +6,8 @@ export const SearchBox = () => {
   const handleChange: JSX.ChangeEventHandler<HTMLInputElement, InputEvent> = (
     event,
   ) => {
-    console.log(event.currentTarget.value);
     noteModel.setNoteListSearchText(event.currentTarget.value);
   };
 
-  return (
-    <input onInput={handleChange} />
-  );
+  return <input onInput={handleChange} />;
 };
