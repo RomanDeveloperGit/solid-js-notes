@@ -1,0 +1,13 @@
+.section {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.buttonBox {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
