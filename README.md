@@ -1,6 +1,6 @@
 # solid-js-notes
 
-Application of notes as part of testing on Solid JS.
+Test application for improving skills in FSD methodology and for studying Solid JS.
 
 ## Usage
 
