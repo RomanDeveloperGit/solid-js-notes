@@ -6,14 +6,20 @@ import { SortBox } from '../../features/sort-box';
 import { DeleteNoteButton } from '../../features/delete-note';
 
 import styles from './styles.module.css';
+import { SearchBox } from '../../features/search-box';
 
 export const NoteList = () => {
   return (
     <div class={styles.container}>
-      {noteModel.getFilteredNoteList().length ? (
+      {noteModel.getFilteredNoteList().length ||
+      noteModel.getNoteListSearchText() ? (
         <>
-          <SortBox />
+          <div class={styles.filters}>
+            <SearchBox />
+            <SortBox />
+          </div>
           <div class={styles.list}>
+            {/* При поиске fallback остается навсегда, если ничего не находится. Исправить */}
             <For
               each={noteModel.getFilteredNoteList()}
               fallback={<div>Загрузка...</div>}

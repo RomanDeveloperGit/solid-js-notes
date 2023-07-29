@@ -2,9 +2,10 @@ import { createSignal } from 'solid-js';
 
 import { SortType } from '../../shared/constants/sort';
 import { createImmerableSignal } from '../../shared/lib/create-immer-signal';
-import { getSortedArrayByCreatedAt } from '../../shared/lib/get-sorted-array-by-created-at';
+import { getSortedArrayByCreatedAt } from '../../shared/lib/sort/get-sorted-array-by-created-at';
 
 import { createNoteEntity } from './lib';
+import { getSortedArrayBySearchText } from '../../shared/lib/sort/get-sorted-array-by-search-text';
 
 export type Note = {
   id: string;
@@ -14,15 +15,24 @@ export type Note = {
 
 const [list, setList] = createImmerableSignal<Note[]>([]);
 const [sort, setSort] = createSignal<SortType>(SortType.Asc);
+const [searchText, setSearchText] = createSignal<string>('');
 
 export const getNoteList = () => {
   return list();
 };
 
+// Как будто бы можно такие отдельные геттеры утащить в фичи/виджеты с сигналами вместе? Подумать
 export const getFilteredNoteList = () => {
   const originalList = list();
 
-  return getSortedArrayByCreatedAt(originalList, sort());
+  // знаю, что по памяти здесь бедово может быть, но тут Immer ради Immer'а и не более)=
+  const sortedListBySearchText = getSortedArrayBySearchText(
+    originalList,
+    'text',
+    searchText(),
+  );
+
+  return getSortedArrayByCreatedAt(sortedListBySearchText, sort());
 };
 
 export const getNoteById = (id: string) => {
@@ -56,16 +66,12 @@ export const deleteNote = (id: string) => {
 
     noteList.splice(index, 1);
   });
-
-  return true;
 };
 
 export const deleteNoteList = () => {
   setList((noteList) => {
     noteList.length = 0;
   });
-
-  return true;
 };
 
 export const getNoteListSort = () => {
@@ -74,6 +80,14 @@ export const getNoteListSort = () => {
 
 export const setNoteListSort = (type: SortType) => {
   setSort(type);
+};
 
-  return true;
+export const getNoteListSearchText = () => {
+  return searchText();
+};
+
+export const setNoteListSearchText = (newSearchText: string) => {
+  // add debounce
+
+  setSearchText(newSearchText);
 };
