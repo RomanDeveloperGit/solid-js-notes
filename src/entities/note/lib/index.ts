@@ -1,1 +1,1 @@
-export { createNoteEntity } from './create-note';
+export { createNoteEntity } from './create-note-entity';
