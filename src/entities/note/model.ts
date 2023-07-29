@@ -1,4 +1,8 @@
-import { createImmerableSignal } from '../../shared/lib';
+import { createSignal } from 'solid-js';
+
+import { SortType } from '../../shared/constants/sort';
+import { createImmerableSignal } from '../../shared/lib/create-immer-signal';
+import { getSortedArrayByCreatedAt } from '../../shared/lib/get-sorted-array-by-created-at';
 
 import { createNoteEntity } from './lib';
 
@@ -8,20 +12,27 @@ export type Note = {
   createdAt: Date;
 };
 
-export const [listStore, setListStore] = createImmerableSignal<Note[]>([]);
+const [list, setList] = createImmerableSignal<Note[]>([]);
+const [sort, setSort] = createSignal<SortType>(SortType.Asc);
 
 export const getNoteList = () => {
-  return listStore();
+  return list();
+};
+
+export const getFilteredNoteList = () => {
+  const originalList = list();
+
+  return getSortedArrayByCreatedAt(originalList, sort());
 };
 
 export const getNoteById = (id: string) => {
-  return listStore().find((note) => note.id === id);
+  return list().find((note) => note.id === id);
 };
 
 export const createNoteList = (texts: string[]) => {
   const newNotes: Note[] = texts.map((text) => createNoteEntity(text));
 
-  setListStore((noteList) => {
+  setList((noteList) => {
     noteList.push(...newNotes);
   });
 
@@ -31,7 +42,7 @@ export const createNoteList = (texts: string[]) => {
 export const createNote = (text: string) => {
   const newNote: Note = createNoteEntity(text);
 
-  setListStore((noteList) => {
+  setList((noteList) => {
     noteList.push(newNote);
   });
 
@@ -39,7 +50,7 @@ export const createNote = (text: string) => {
 };
 
 export const deleteNote = (id: string) => {
-  setListStore((noteList) => {
+  setList((noteList) => {
     const index = noteList.findIndex((note) => note.id === id);
     if (index === -1) return;
 
@@ -50,9 +61,19 @@ export const deleteNote = (id: string) => {
 };
 
 export const deleteNoteList = () => {
-  setListStore((noteList) => {
+  setList((noteList) => {
     noteList.length = 0;
   });
+
+  return true;
+};
+
+export const getNoteListSort = () => {
+  return sort();
+};
+
+export const setNoteListSort = (type: SortType) => {
+  setSort(type);
 
   return true;
 };

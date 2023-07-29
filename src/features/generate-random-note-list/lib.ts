@@ -1,4 +1,4 @@
-import { random } from '../../shared/lib';
+import { random } from '../../shared/lib/random';
 
 const SENTENCES_MIN = 1;
 const SENTENCES_MAX = 100;

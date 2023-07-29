@@ -19,7 +19,7 @@ export const NoteItem: Component<Props> = ({
       <div>ID: {id}</div>
       <div class={styles.text}>{text}</div>
       <div class={styles.bottom}>
-        <div class={styles.date}>{createdAt.toDateString()}</div>
+        <div class={styles.date}>{createdAt.toUTCString()}</div>
         <div class={styles.removeButton}>{deleteButtonSlot}</div>
       </div>
     </div>
