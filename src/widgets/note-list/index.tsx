@@ -1,21 +1,21 @@
-// сделать тут сигнал, поменять его тут нсколько раз, ререндерятся ли дочерние?
-
-import { Component, For } from 'solid-js';
+import { For } from 'solid-js';
 
 import { NoteItem, noteModel } from '../../entities/note';
 
 import styles from './styles.module.css';
+import { DeleteNoteButton } from '../../features/delete-note';
 
-type Props = {
-  list: noteModel.Note[];
-};
-
-export const NoteList: Component<Props> = ({ list }) => {
+export const NoteList = () => {
   return (
     <div class={styles.list}>
-      {list.length ? (
-        <For each={list} fallback={<div>Загрузка...</div>}>
-          {(item) => <NoteItem {...item} />}
+      {noteModel.getNoteList().length ? (
+        <For each={noteModel.getNoteList()} fallback={<div>Загрузка...</div>}>
+          {(item) => (
+            <NoteItem
+              deleteButtonSlot={<DeleteNoteButton id={item.id} />}
+              {...item}
+            />
+          )}
         </For>
       ) : (
         <div>У вас нет заметок</div>

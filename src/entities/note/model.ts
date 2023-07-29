@@ -44,3 +44,11 @@ export const deleteNote = (id: string) => {
 
   return true;
 };
+
+export const deleteNoteList = () => {
+  setListStore((noteList) => {
+    noteList.length = 0;
+  });
+
+  return true;
+};
