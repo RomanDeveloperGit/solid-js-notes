@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { createImmerableSignal } from '../../shared/libs';
 
-type Note = {
+export type Note = {
   id: string;
   text: string;
   createdAt: Date;

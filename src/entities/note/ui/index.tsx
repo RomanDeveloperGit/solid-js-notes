@@ -1,11 +1,15 @@
+import { Component } from 'solid-js';
+
+import { Note } from '../model';
+
 import styles from './styles.module.css';
 
-export const Note = () => {
+export const NoteItem: Component<Note> = ({ id, text, createdAt }) => {
   return (
     <div class={styles.card}>
-      <div>test</div>
-      <div>test</div>
-      <div>test</div>
+      <div>ID: {id}</div>
+      <div class={styles.text}>{text}</div>
+      <div class={styles.date}>{createdAt.toDateString()}</div>
     </div>
   );
 };

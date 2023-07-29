@@ -1,11 +1,28 @@
 .card {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 
   display: flex;
   flex-direction: column;
 
+  gap: 10px;
+
   border: 1px solid red;
 
-  padding: 50px;
+  padding: 30px;
+}
+
+.text {
+  overflow: hidden;
+
+  display: -webkit-box;
+  line-clamp: 5;
+
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.date {
+  margin-top: auto;
+  margin-left: auto;
 }

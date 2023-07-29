@@ -1,3 +1,3 @@
 export * as noteModel from './model';
 
-export { Note } from './ui';
+export { NoteItem } from './ui';
