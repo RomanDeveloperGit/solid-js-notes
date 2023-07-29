@@ -3,10 +3,10 @@ import { For } from 'solid-js';
 import { NoteItem, noteModel } from '../../entities/note';
 
 import { SortBox } from '../../features/sort-box';
+import { SearchBox } from '../../features/search-box';
 import { DeleteNoteButton } from '../../features/delete-note';
 
 import styles from './styles.module.css';
-import { SearchBox } from '../../features/search-box';
 
 export const NoteList = () => {
   return (

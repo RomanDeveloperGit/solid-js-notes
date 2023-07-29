@@ -3,9 +3,9 @@ import { createSignal } from 'solid-js';
 import { SortType } from '../../shared/constants/sort';
 import { createImmerableSignal } from '../../shared/lib/create-immer-signal';
 import { getSortedArrayByCreatedAt } from '../../shared/lib/sort/get-sorted-array-by-created-at';
+import { getSortedArrayBySearchText } from '../../shared/lib/sort/get-sorted-array-by-search-text';
 
 import { createNoteEntity } from './lib';
-import { getSortedArrayBySearchText } from '../../shared/lib/sort/get-sorted-array-by-search-text';
 
 export type Note = {
   id: string;
