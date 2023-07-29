@@ -18,8 +18,6 @@ export const getNoteById = (id: string) => {
   return listStore().find((note) => note.id === id);
 };
 
-// Инишиал загрузка списка извне компонента - добавить функцию
-
 export const createNoteList = (texts: string[]) => {
   const newNotes: Note[] = texts.map((text) => createNoteEntity(text));
 
