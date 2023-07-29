@@ -1,6 +1,6 @@
-import { v4 as uuidv4 } from 'uuid';
+import { createImmerableSignal } from '../../shared/lib';
 
-import { createImmerableSignal } from '../../shared/libs';
+import { createNoteEntity } from './lib';
 
 export type Note = {
   id: string;
@@ -20,12 +20,18 @@ export const getNoteById = (id: string) => {
 
 // Инишиал загрузка списка извне компонента - добавить функцию
 
+export const createNoteList = (texts: string[]) => {
+  const newNotes: Note[] = texts.map((text) => createNoteEntity(text));
+
+  setListStore((noteList) => {
+    noteList.push(...newNotes);
+  });
+
+  return newNotes;
+};
+
 export const createNote = (text: string) => {
-  const newNote: Note = {
-    id: uuidv4(),
-    text,
-    createdAt: new Date(),
-  };
+  const newNote: Note = createNoteEntity(text);
 
   setListStore((noteList) => {
     noteList.push(newNote);
