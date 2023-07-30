@@ -59,6 +59,16 @@ export const createNote = (text: string) => {
   return newNote;
 };
 
+export const updateNoteText = (id: string, newText: string) => {
+  setList((noteList) => {
+    noteList.forEach((note) => {
+      if (note.id !== id) return;
+
+      note.text = newText;
+    });
+  });
+};
+
 export const deleteNote = (id: string) => {
   setList((noteList) => {
     const index = noteList.findIndex((note) => note.id === id);

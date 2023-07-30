@@ -4,6 +4,7 @@ import { getRedirectPageHandler } from '../../shared/lib/get-redirect-page-handl
 import { NoteRow, noteModel } from '../../entities/note';
 
 import { DeleteNoteButton } from '../../features/note/delete-note';
+import { UpdateNoteTextButton } from '../../features/note/update-note-text';
 
 export const NoteDetailsPage = () => {
   const noteId = window.location.pathname.split('/')[2];
@@ -22,9 +23,12 @@ export const NoteDetailsPage = () => {
         id={note.id}
         text={note.text}
         createdAt={note.createdAt}
-        editButtonSlot={<button>Редактировать</button>}
+        editButtonSlot={<UpdateNoteTextButton id={note.id} />}
         deleteButtonSlot={
-          <DeleteNoteButton id={note.id} onBeforeSuccess={handleBeforeDeleteSuccess} />
+          <DeleteNoteButton
+            id={note.id}
+            onBeforeSuccess={handleBeforeDeleteSuccess}
+          />
         }
       />
     </section>
