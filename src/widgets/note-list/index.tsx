@@ -1,5 +1,8 @@
 import { For } from 'solid-js';
 
+import { PageKey } from '../../shared/constants/pages';
+import { getRedirectPageHandler } from '../../shared/lib/get-redirect-page-handler';
+
 import { NoteItem, noteModel } from '../../entities/note';
 
 import { SortBox } from '../../features/note/sort-box';
@@ -27,6 +30,10 @@ export const NoteList = () => {
               {(item) => (
                 <NoteItem
                   deleteButtonSlot={<DeleteNoteButton id={item.id} />}
+                  handleRedirectToDetailsNotePage={getRedirectPageHandler(
+                    PageKey.NoteDetails,
+                    item.id,
+                  )}
                   {...item}
                 />
               )}

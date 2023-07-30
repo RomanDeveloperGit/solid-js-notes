@@ -6,6 +6,7 @@ import styles from './styles.module.css';
 
 type Props = Note & {
   deleteButtonSlot: JSX.Element;
+  handleRedirectToDetailsNotePage: () => void;
 };
 
 export const NoteItem: Component<Props> = ({
@@ -13,11 +14,14 @@ export const NoteItem: Component<Props> = ({
   text,
   createdAt,
   deleteButtonSlot,
+  handleRedirectToDetailsNotePage,
 }) => {
   return (
     <div class={styles.card}>
-      <div>ID: {id}</div>
-      <div class={styles.text}>{text}</div>
+      <div class={styles.main} onClick={handleRedirectToDetailsNotePage}>
+        <div>ID: {id}</div>
+        <div class={styles.text}>{text}</div>
+      </div>
       <div class={styles.bottom}>
         <div class={styles.date}>{createdAt.toUTCString()}</div>
         <div class={styles.removeButton}>{deleteButtonSlot}</div>

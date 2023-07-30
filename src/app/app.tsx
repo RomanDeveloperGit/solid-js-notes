@@ -1,14 +1,14 @@
 import { type Component } from 'solid-js';
 
-import { NoteListPage } from '../pages/note-list-page';
+import { Router } from './router';
 
 import { init } from './init';
 
 // Добавить собачку на импорт
-// можно JSX засунуть в сигнал?
+// можно JSX засунуть в сигнал? - МОЖНО.
 
 export const App: Component = () => {
-  return <NoteListPage />;
+  return <Router />;
 };
 
 init();
