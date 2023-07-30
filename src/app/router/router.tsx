@@ -1,14 +1,18 @@
 import { createSignal, onCleanup, onMount } from 'solid-js';
-import { PAGE_KEY_COMPONENT } from './config';
+
 import { PageKey } from '../../shared/constants/pages';
 
-const [currentRoute, setCurrentRoute] = createSignal<PageKey>(PageKey.NoteList);
+import { PAGE_KEY_COMPONENT } from './config';
+
+const [currentPageKey, setCurrentPageKey] = createSignal<PageKey>(
+  PageKey.NoteList,
+);
 
 export const Router = () => {
   const handlePopState = () => {
     if (typeof history.state?.pageKey !== 'number') return;
 
-    setCurrentRoute(history.state.pageKey);
+    setCurrentPageKey(history.state.pageKey);
   };
 
   onMount(() => {
@@ -19,9 +23,5 @@ export const Router = () => {
     window.removeEventListener('popstate', handlePopState);
   });
 
-  return (
-    <>
-      {PAGE_KEY_COMPONENT[currentRoute()]}
-    </>
-  );
+  return <>{PAGE_KEY_COMPONENT[currentPageKey()]}</>;
 };

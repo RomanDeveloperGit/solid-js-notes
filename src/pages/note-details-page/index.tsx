@@ -3,8 +3,8 @@ import { getRedirectPageHandler } from '../../shared/lib/get-redirect-page-handl
 
 import { NoteRow, noteModel } from '../../entities/note';
 
-import { DeleteNoteButton } from '../../features/note/delete-note';
 import { UpdateNoteTextButton } from '../../features/note/update-note-text';
+import { DeleteNoteButton } from '../../features/note/delete-note';
 
 export const NoteDetailsPage = () => {
   // Почему-то здесь сработает рактивность на note переменную в рендере, а в виджете нет

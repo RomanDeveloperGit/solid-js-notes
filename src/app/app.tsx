@@ -1,7 +1,6 @@
 import { type Component } from 'solid-js';
 
 import { Router } from './router';
-
 import { init } from './init';
 
 // Добавить собачку на импорт

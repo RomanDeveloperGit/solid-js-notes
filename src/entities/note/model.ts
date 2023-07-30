@@ -25,7 +25,7 @@ export const getNoteList = () => {
 export const getFilteredNoteList = () => {
   const originalList = list();
 
-  // знаю, что по памяти здесь бедово может быть, но тут Immer ради Immer'а и не более)=
+  // знаю, что по памяти здесь бедово может быть, но тут Immer ради Immer'а и не более)
   const sortedListBySearchText = getSortedArrayBySearchText(
     originalList,
     'text',
