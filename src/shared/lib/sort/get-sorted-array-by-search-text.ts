@@ -1,5 +1,9 @@
 import { produce } from 'immer';
 
+const getFormattedForSearchString = (text: string) => {
+  return text.trim().toLocaleLowerCase();
+};
+
 export const getSortedArrayBySearchText = <T>(
   array: T[],
   property: keyof T,
@@ -7,7 +11,9 @@ export const getSortedArrayBySearchText = <T>(
 ) => {
   return produce(array, (draft: T[]) =>
     draft.filter((item) =>
-      String(item[property]).trim().toLowerCase().includes(value.toLowerCase()),
+      getFormattedForSearchString(String(item[property])).includes(
+        getFormattedForSearchString(value),
+      ),
     ),
   );
 };
