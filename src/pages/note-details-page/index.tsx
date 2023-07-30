@@ -7,7 +7,7 @@ import { UpdateNoteTextButton } from '#/features/note/update-note-text';
 import { DeleteNoteButton } from '#/features/note/delete-note';
 
 export const NoteDetailsPage = () => {
-  // Почему-то здесь сработает рактивность на note переменную в рендере, а в виджете нет
+  // Почему-то здесь сработает реактивность на note переменную в рендере, а в виджете нет
   const noteId = window.location.pathname.split('/')[2];
   const note = noteModel.getNoteById(noteId) as noteModel.Note;
 
