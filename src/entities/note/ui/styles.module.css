@@ -13,7 +13,7 @@
   padding: 30px;
 }
 
-.main {
+.cardMain {
   display: flex;
   flex-direction: column;
 
@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-.text {
+.cardText {
   overflow: hidden;
 
   display: -webkit-box;
@@ -32,8 +32,24 @@
   -webkit-box-orient: vertical;
 }
 
-.bottom {
+.cardBottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  
+  gap: 20px;
+
+  padding: 20px 0;
+}
+
+.rowButtonBox {
+  display: flex;
+  align-items: center;
+  
+  gap: 10px;
 }

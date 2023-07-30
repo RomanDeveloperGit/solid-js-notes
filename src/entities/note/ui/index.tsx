@@ -4,12 +4,12 @@ import { Note } from '../model';
 
 import styles from './styles.module.css';
 
-type Props = Note & {
-  deleteButtonSlot: JSX.Element;
-  handleRedirectToDetailsNotePage: () => void;
-};
-
-export const NoteItem: Component<Props> = ({
+export const NoteCard: Component<
+  Note & {
+    deleteButtonSlot: JSX.Element;
+    handleRedirectToDetailsNotePage: () => void;
+  }
+> = ({
   id,
   text,
   createdAt,
@@ -18,14 +18,33 @@ export const NoteItem: Component<Props> = ({
 }) => {
   return (
     <div class={styles.card}>
-      <div class={styles.main} onClick={handleRedirectToDetailsNotePage}>
+      <div class={styles.cardMain} onClick={handleRedirectToDetailsNotePage}>
         <div>ID: {id}</div>
-        <div class={styles.text}>{text}</div>
+        <div class={styles.cardText}>{text}</div>
       </div>
-      <div class={styles.bottom}>
-        <div class={styles.date}>{createdAt.toUTCString()}</div>
-        <div class={styles.removeButton}>{deleteButtonSlot}</div>
+      <div class={styles.cardBottom}>
+        <div>{createdAt.toUTCString()}</div>
+        <div>{deleteButtonSlot}</div>
       </div>
+    </div>
+  );
+};
+
+export const NoteRow: Component<
+  Note & {
+    editButtonSlot: JSX.Element;
+    deleteButtonSlot: JSX.Element;
+  }
+> = ({ id, text, createdAt, editButtonSlot, deleteButtonSlot }) => {
+  return (
+    <div class={styles.row}>
+      <div class={styles.rowButtonBox}>
+        {editButtonSlot}
+        {deleteButtonSlot}
+      </div>
+      <div>ID: {id}</div>
+      <div>Text: {text}</div>
+      <div>Created at: {createdAt.toUTCString()}</div>
     </div>
   );
 };

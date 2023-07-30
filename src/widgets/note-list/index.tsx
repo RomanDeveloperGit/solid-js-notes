@@ -3,7 +3,7 @@ import { For } from 'solid-js';
 import { PageKey } from '../../shared/constants/pages';
 import { getRedirectPageHandler } from '../../shared/lib/get-redirect-page-handler';
 
-import { NoteItem, noteModel } from '../../entities/note';
+import { NoteCard, noteModel } from '../../entities/note';
 
 import { SortBox } from '../../features/note/sort-box';
 import { SearchBox } from '../../features/note/search-box';
@@ -28,7 +28,7 @@ export const NoteList = () => {
               fallback={<div>Загрузка...</div>}
             >
               {(item) => (
-                <NoteItem
+                <NoteCard
                   deleteButtonSlot={<DeleteNoteButton id={item.id} />}
                   handleRedirectToDetailsNotePage={getRedirectPageHandler(
                     PageKey.NoteDetails,

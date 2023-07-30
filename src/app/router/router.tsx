@@ -4,8 +4,6 @@ import { PageKey } from '../../shared/constants/pages';
 
 const [currentRoute, setCurrentRoute] = createSignal<PageKey>(PageKey.NoteList);
 
-// const [currentRoute, setCurrentRoute] = createSignal(<NoteListPage />);
-
 export const Router = () => {
   const handlePopState = () => {
     if (typeof history.state?.pageKey !== 'number') return;
