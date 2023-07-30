@@ -1,6 +1,6 @@
 import { createSignal, onCleanup, onMount } from 'solid-js';
 
-import { PageKey } from '../../shared/constants/pages';
+import { PageKey } from '#/shared/constants/pages';
 
 import { PAGE_KEY_COMPONENT } from './config';
 

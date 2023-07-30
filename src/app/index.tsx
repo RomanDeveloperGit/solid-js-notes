@@ -1,3 +1,3 @@
-export { App } from './app';
+export { initDataApplication } from './init';
 
-// init() ???
+export { App } from './app';

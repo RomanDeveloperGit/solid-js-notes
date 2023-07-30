@@ -1,7 +1,7 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
 
-import { App } from './app';
+import { App, initDataApplication } from './app';
 
 const root = document.getElementById('root');
 
@@ -11,4 +11,5 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
+initDataApplication();
 render(() => <App />, root!);

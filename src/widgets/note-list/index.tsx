@@ -1,13 +1,13 @@
 import { For, Show } from 'solid-js';
 
-import { PageKey } from '../../shared/constants/pages';
-import { getRedirectPageHandler } from '../../shared/lib/get-redirect-page-handler';
+import { PageKey } from '#/shared/constants/pages';
+import { getRedirectPageHandler } from '#/shared/lib/get-redirect-page-handler';
 
-import { NoteCard, noteModel } from '../../entities/note';
+import { NoteCard, noteModel } from '#/entities/note';
 
-import { SortBox } from '../../features/note/sort-box';
-import { SearchBox } from '../../features/note/search-box';
-import { DeleteNoteButton } from '../../features/note/delete-note';
+import { SortBox } from '#/features/note/sort-box';
+import { SearchBox } from '#/features/note/search-box';
+import { DeleteNoteButton } from '#/features/note/delete-note';
 
 import styles from './styles.module.css';
 

@@ -1,8 +1,8 @@
-import { GenerateRandomNoteListButton } from '../../features/note/generate-random-note-list';
-import { CreateNoteButton } from '../../features/note/create-note';
-import { DeleteNoteListButton } from '../../features/note/delete-note-list';
+import { GenerateRandomNoteListButton } from '#/features/note/generate-random-note-list';
+import { CreateNoteButton } from '#/features/note/create-note';
+import { DeleteNoteListButton } from '#/features/note/delete-note-list';
 
-import { NoteList } from '../../widgets/note-list';
+import { NoteList } from '#/widgets/note-list';
 
 import styles from './styles.module.css';
 

@@ -1,6 +1,6 @@
 import { produce } from 'immer';
 
-// @cross-import, но допустим
+// @cross-import, но допустимо
 import { SortType } from '../../constants/sort';
 
 export const getSortedArrayByCreatedAt = <T extends { createdAt: Date }>(

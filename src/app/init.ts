@@ -1,10 +1,10 @@
-import { PageKey } from '../shared/constants/pages';
-import { getRedirectPageHandler } from '../shared/lib/get-redirect-page-handler';
-import { generateRandomTextList } from '../shared/lib/generate-random-text-list';
+import { PageKey } from '#/shared/constants/pages';
+import { getRedirectPageHandler } from '#/shared/lib/get-redirect-page-handler';
+import { generateRandomTextList } from '#/shared/lib/generate-random-text-list';
 
-import { noteModel } from '../entities/note';
+import { noteModel } from '#/entities/note';
 
-export const init = () => {
+export const initDataApplication = () => {
   const redirectToNoteListPage = getRedirectPageHandler(PageKey.NoteList);
   redirectToNoteListPage();
 
