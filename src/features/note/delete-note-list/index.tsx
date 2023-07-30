@@ -1,4 +1,4 @@
-import { noteModel } from '../../entities/note';
+import { noteModel } from '../../../entities/note';
 
 export const DeleteNoteListButton = () => {
   const handleClick = () => {

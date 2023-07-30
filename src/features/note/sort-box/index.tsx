@@ -1,8 +1,8 @@
 import type { JSX } from 'solid-js/jsx-runtime';
 
-import { SORT_TYPE_TEXT, SortType } from '../../shared/constants/sort';
+import { SORT_TYPE_TEXT, SortType } from '../../../shared/constants/sort';
 
-import { noteModel } from '../../entities/note';
+import { noteModel } from '../../../entities/note';
 
 import styles from './styles.module.css';
 

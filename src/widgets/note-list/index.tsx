@@ -2,9 +2,9 @@ import { For } from 'solid-js';
 
 import { NoteItem, noteModel } from '../../entities/note';
 
-import { SortBox } from '../../features/sort-box';
-import { SearchBox } from '../../features/search-box';
-import { DeleteNoteButton } from '../../features/delete-note';
+import { SortBox } from '../../features/note/sort-box';
+import { SearchBox } from '../../features/note/search-box';
+import { DeleteNoteButton } from '../../features/note/delete-note';
 
 import styles from './styles.module.css';
 

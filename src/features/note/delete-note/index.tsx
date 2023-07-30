@@ -1,6 +1,6 @@
 import { Component } from 'solid-js';
 
-import { noteModel } from '../../entities/note';
+import { noteModel } from '../../../entities/note';
 
 type Props = {
   id: string;

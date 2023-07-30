@@ -1,6 +1,6 @@
-import { noteModel } from '../../entities/note';
+import { generateRandomTextList } from '../../../shared/lib/generate-random-text-list';
 
-import { generateRandomTextList } from './lib';
+import { noteModel } from '../../../entities/note';
 
 export const GenerateRandomNoteListButton = () => {
   const handleClick = () => {

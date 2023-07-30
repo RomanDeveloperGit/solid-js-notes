@@ -1,6 +1,6 @@
 import { JSX } from 'solid-js/jsx-runtime';
 
-import { noteModel } from '../../entities/note';
+import { noteModel } from '../../../entities/note';
 
 export const SearchBox = () => {
   const handleChange: JSX.ChangeEventHandler<HTMLInputElement, InputEvent> = (

@@ -1,6 +1,6 @@
-import { noteModel } from '../entities/note';
+import { generateRandomTextList } from '../shared/lib/generate-random-text-list';
 
-import { generateRandomTextList } from '../features/generate-random-note-list/lib';
+import { noteModel } from '../entities/note';
 
 export const init = () => {
   const generatedRandomTextList = generateRandomTextList(3);
