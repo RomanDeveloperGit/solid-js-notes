@@ -7,9 +7,9 @@ import { DeleteNoteButton } from '../../features/note/delete-note';
 import { UpdateNoteTextButton } from '../../features/note/update-note-text';
 
 export const NoteDetailsPage = () => {
+  // Почему-то здесь сработает рактивность на note переменную в рендере, а в виджете нет
   const noteId = window.location.pathname.split('/')[2];
   const note = noteModel.getNoteById(noteId) as noteModel.Note;
-  console.log(note);
 
   const handleBeforeDeleteSuccess = () => {
     const redirectToNoteListPage = getRedirectPageHandler(PageKey.NoteList);
