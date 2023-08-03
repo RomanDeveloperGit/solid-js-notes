@@ -11,9 +11,11 @@ export const NoteDetailsPage = () => {
   const noteId = window.location.pathname.split('/')[2];
   const note = noteModel.getNoteById(noteId) as noteModel.Note;
 
-  const handleBeforeDeleteSuccess = () => {
+  const handleDelete = (originalHandler: () => void) => {
     const redirectToNoteListPage = getRedirectPageHandler(PageKey.NoteList);
+
     redirectToNoteListPage();
+    originalHandler();
   };
 
   return (
@@ -25,10 +27,7 @@ export const NoteDetailsPage = () => {
         createdAt={note.createdAt}
         editButtonSlot={<UpdateNoteTextButton id={note.id} />}
         deleteButtonSlot={
-          <DeleteNoteButton
-            id={note.id}
-            onBeforeSuccess={handleBeforeDeleteSuccess}
-          />
+          <DeleteNoteButton id={note.id} onClick={handleDelete} />
         }
       />
     </section>

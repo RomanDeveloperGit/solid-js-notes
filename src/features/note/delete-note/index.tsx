@@ -4,24 +4,24 @@ import { noteModel } from '#/entities/note';
 
 type Props = {
   id: string;
-  onBeforeSuccess?: () => void; // костыльненько
-  onAfterSuccess?: () => void;
+  onClick?: (originalHandler: () => void) => void;
 };
 
-export const DeleteNoteButton: Component<Props> = ({
-  id,
-  onBeforeSuccess,
-  onAfterSuccess,
-}) => {
+export const DeleteNoteButton: Component<Props> = ({ id, onClick }) => {
+  const handleDelete = () => {
+    noteModel.deleteNote(id);
+  };
+
   const handleClick = () => {
     const isConfirmed = confirm('Действительно хотите удалить заметку?');
     if (!isConfirmed) return;
 
-    onBeforeSuccess?.();
+    if (!onClick) {
+      handleDelete();
+      return;
+    }
 
-    noteModel.deleteNote(id);
-
-    onAfterSuccess?.();
+    onClick(handleDelete);
   };
 
   return <button onClick={handleClick}>Удалить</button>;
